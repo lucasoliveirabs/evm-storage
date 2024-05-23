@@ -1,5 +1,5 @@
 # EVM Storage
-Solidity is a strongly typed language so the most important thing regarding storage is regarding the *number of slots used* and *what values are used in those slots*;
+Solidity is a strongly typed language so the most important thing regarding storage is regarding the **number of slots used** and **what values are used in those slots**;
 
 ### Code Pathway
 solidity >(solc, Yul generation)> deployed EVM bytecode >(mining and bytecode execution by nodes)> blockchain state stored by nodes
