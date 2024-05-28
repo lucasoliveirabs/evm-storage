@@ -2,7 +2,7 @@
 pragma solidity 0.8.24;
 
 contract DynamicArray {
-    // slot value = keccak256(base_slot key) + element size in slots * index of element in the array
+    // slotKey = keccak256(base_slot key) + element size in slots * index of element in the array
 
     //keccak256(0), keccak256(0) + 1, keccak256(0) + 2
     uint256[] private arr = [10, 11, 12];
@@ -16,13 +16,13 @@ contract DynamicArray {
     uint128[] private arr2 = [20, 21, 22, 23, 24, 25, 26];
 
 
-    function getArrayAllocation (uint256 _baseSlot, uint256 _i) 
+    function get (uint256 _baseSlotKey, uint256 _i) 
         external view returns (uint256 val256, uint128 val128, bytes32 valBytes, uint256 length) {
-            bytes32 encodedBaseSlot = keccak256(abi.encode(_baseSlot));
+            bytes32 encodedBaseSlotKey = keccak256(abi.encode(_baseSlotKey));
             
             assembly {
-                length := sload(_baseSlot)
-                val256 := sload(add(_baseSlot, _i))
+                length := sload(_baseSlotKey)
+                val256 := sload(add(encodedBaseSlotKey, _i))
                 val128 := val256
                 valBytes := val256 
             }
