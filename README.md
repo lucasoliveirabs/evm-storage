@@ -26,4 +26,4 @@ solidity >(solc, Yul generation)> deployed EVM bytecode >(mining and bytecode ex
 #### Main Refs
 https://docs.soliditylang.org/en/v0.8.26/
 https://ethereum.org/pt-br/developers/docs/
-https://dittoeth.com/blog/packing
+https://dittoeth.com/blog/packing# defi-samples
